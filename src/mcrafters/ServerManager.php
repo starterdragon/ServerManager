@@ -68,9 +68,9 @@ class ServerManager extends PluginBase implements Listener
     public function onPlace(BlockPlaceEvent $bpe)
     {
         if($this->cfg->get("BlockPlacing") == false or $this->cfg->get("BlockPlacing") == disabled){
-        if(!$bbe->getPlayer()->hasPermission('servermanager.bypass')){
-            $bbe->getPlayer()->sendMessage($prefix . $this->cfgm->get("BlockPlacing"));
-        $bbe->setCancelled();
+        if(!$bpe->getPlayer()->hasPermission('servermanager.bypass')){
+            $bpe->getPlayer()->sendMessage($prefix . $this->cfgm->get("BlockPlacing"));
+        $bpe->setCancelled();
     }
 	}
 }
@@ -86,27 +86,27 @@ class ServerManager extends PluginBase implements Listener
     public function onChat(PlayerChatEvent $pce)
     {
         if($this->cfg->get("Chatting") == false or $this->cfg->get("Chatting") == disabled){
-            if(!$bbe->getPlayer()->hasPermission('servermanager.bypass')){
-                $bbe->getPlayer()->sendMessage($prefix . $this->cfgm->get("Chatting"));
-                $bbe->setCancelled();
+            if(!$pce->getPlayer()->hasPermission('servermanager.bypass')){
+                $pce->getPlayer()->sendMessage($prefix . $this->cfgm->get("Chatting"));
+                $pce->setCancelled();
             }
         }
     }
     public function onDropItem(PlayerDropItemEvent $pdie)
     {
-        if($this->cfg->get("BlockBreaking") == false or $this->cfg->get("BlockBreaking") == disabled){
-            if(!$bbe->getPlayer()->hasPermission('servermanager.bypass')){
-               $bbe->getPlayer()->sendMessage($prefix . $this->cfgm->get("ItemDrop"));
-                $bbe->setCancelled();
+        if($this->cfg->get("ItemDrop") == false or $this->cfg->get("ItemDrop") == disabled){
+            if(!$pdie->getPlayer()->hasPermission('servermanager.bypass')){
+               $pdie->getPlayer()->sendMessage($prefix . $this->cfgm->get("ItemDrop"));
+                $pdie->setCancelled();
             }
         }
     }
     public function onDeath(PlayerDeathEvent $pde)
     {
         if($this->cfg->get("Death") == false or $this->cfg->get("Death") == disabled){
-            if(!$bbe->getPlayer()->hasPermission('servermanager.bypass')){
-                $bbe->getPlayer()->sendMessage($prefix . $this->cfgm->get("Death"));
-                $bbe->setCancelled();
+            if(!$pdie->getPlayer()->hasPermission('servermanager.bypass')){
+                $pdie->getPlayer()->sendMessage($prefix . $this->cfgm->get("Death"));
+                $pdie->setCancelled();
             }
         }
     }
