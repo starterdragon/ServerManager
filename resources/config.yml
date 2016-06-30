@@ -9,3 +9,12 @@
 #         The Ultimate Server Managing Plugin                    |___/              #
 #####################################################################################
 BlockBreaking: false
+####################
+BlockPlacing: false
+####################
+ItemDrop: false
+####################
+Chatting: false
+####################
+Death: false
+####################
